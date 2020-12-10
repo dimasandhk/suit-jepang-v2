@@ -4,7 +4,8 @@ const allSelector = {
   gKomputer : document.querySelector('.img-computer'),
   menang : document.querySelector('.menang'),
   kalah : document.querySelector('.kalah'),
-  tReset : document.getElementById('btnReset')
+  tReset : document.getElementById('btnReset'),
+  toggle : document.querySelector('.switch input')
 };
 
 function getPilihanComputer() {
@@ -69,3 +70,14 @@ allSelector.pilihan.forEach(function(pil) {
   });
 });
 
+allSelector.toggle.addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  if (allSelector.tReset.classList.contains('btn-outline-dark')) {
+    allSelector.tReset.classList.remove('btn-outline-dark');
+    allSelector.tReset.classList.add('btn-outline-light');
+  } else if (allSelector.tReset.classList.contains('btn-outline-light')) {
+    allSelector.tReset.classList.remove('btn-outline-light');
+    allSelector.tReset.classList.add('btn-outline-dark');
+  }
+  document.body.style.transition = 'all 0.5s';
+});
